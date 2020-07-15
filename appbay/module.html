@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script type="text/javascript">
+function validate()
+{
+  var username=f1.Username.value;
+  var pass=f1.lastname.value;
+  var type=f1.UserType.value;
+  if(type=='warden')
+  {
+      
+  if(username==null || username=="" && pass==null || pass=="")
+  {
+    alert("Provide Login Credentials");
+  }
+  else if(username=="kletech" && pass=="123456")
+  {
+    
+    window.open("mobile.html"); 
+  }
+  else
+  {
+  alert("Login Unsuccessful");
+  }
+}
+   else if(type=='managers')
+   {
+        if(username==null || username=="" && pass==null || pass=="")
+  {
+    alert("Provide Login Credentials");
+  }
+  else if(username=="kle" && pass=="123")
+  {
+    
+    window.open("manager.html"); 
+  }
+  else
+  {
+  alert("Login Unsuccessful");
+  }     
+}
+
+   else
+{
+         if(username==null || username=="" && pass==null || pass=="")
+  {
+    alert("Provide Login Credentials");
+  }
+  else if(username=="klemca" && pass=="1234")
+  {
+    
+    window.open("student.html"); 
+  }
+  else
+  {
+  alert("Login Unsuccessful");
+  }
+
+}
+}
+</script> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input[type=text], select {
+    width: 34%;
+    padding: 12px;
+    margin: 5px 0;
+    display:inline-block;
+    border: 0.5px solid #ccc;
+    border-radius: 1px;
+      font-color:maroon;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+input[type=Password], select {
+    width: 34%;
+    padding: 12px;
+    margin: 5px 0;
+    display:inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 19px;
+}
+
+
+
+
+
+
+
+input[type=submit] {
+    width: 9%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 9px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-family:Segoe Print;
+    font-size: 19px;
+    font-variant: bold; 
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+body {
+  background-color:"green";
+  margin: 0;
+  background-image: "college.jpg";
+  font-family: Verdana;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:maroon;
+  background-size: 4px;
+}
+.topnav1 {
+  
+  background-color:lightyellow;
+  background-size:0px;
+  font-size:20px;
+  font-family: sans-serif;
+ 
+}
+
+.topnav a {
+  float: left;
+  color:gold;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: underline;
+  font-size: 19px;
+  background-color:;
+  font-family: Verdana;
+}
+
+.topnav a:hover {
+  color:gold;
+  text-decoration: underline;
+  font-size: 19px;
+  font-family: Verdana;
+  
+}
+
+.topnav a.active {
+  
+  color: gold;
+}
+  h1 {
+    text-shadow: 0 0 3px #FF0000;
+
+}
+.bg
+{
+  background-image:"ur:'college.jpg";
+}
+.mn
+{
+  font-size: 20px;
+  font-family: verdana;
+  font-color:maroon;
+  font-weight: bolder;
+}
+
+}
+
+.content1{
+  background-color: rgba(91, 91, 91,.7);
+}
+
+
+
+
+</style>
+</head>
+<body>
+<div class="topnav1">
+  <h1><center><u>HOSTEL MANAGEMENT SYSTEM</u></center></h1>
+</div>
+<div class="topnav">
+  <a class="active" href="home.html">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a> 
+</div>
+
+<div style="padding-left:30px">
+
+  
+</div>
+<h1><style="font color:forest green; family:Segoe Print;">Login Here</font></style></h1>
+<center>
+
+<div class="content1" style="height: 500px; width: 1300px ;">
+  <form name="f1" method="post" >
+  <br> 
+        <label  class="mn" for="user type">User Type</label>&nbsp &nbsp
+    <select id="country" name="UserType">
+      <option value="warden">Warden</option>
+      <option value="managers">Managers</option>
+      <option value="students">Students</option>
+    </select>
+<br>
+   <label class="mn" for="fname"> Username</label> &nbsp &nbsp
+   <input type="text" id="fname" name="Username" placeholder="Username...">
+<br>
+   <label class="mn" for="lname">Password</label> &nbsp &nbsp
+    <input type="Password" id="lname" name="lastname" placeholder="Password...">
+<br>
+  
+ <input type="submit" id="demo" onclick="validate()" value="Sign in">&nbsp &nbsp &nbsp <b><a href="forgot.html" >Forgot Password</a></b>
+ 
+
+  </form>
+</div>
+</center>
+
+</body>
+</html>

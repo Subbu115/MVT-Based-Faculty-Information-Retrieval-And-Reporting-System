@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+input[type=submit] {
+    width: 18%;
+    background-color: #008CBA;;
+    color: white;
+    padding: 10px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family:sans-serif;
+    font-size: 19px;
+    font-variant: bold;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+input[type=text], select {
+    width: 25%;
+    padding: 7px;
+    margin: 5px 0;
+    display:inline-block;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+      font-color:white;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.mn
+{
+  font-size: 19px;
+  font-family: sans-serif;
+  font-color:white;
+
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: gray;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+#name{
+  font-size: 40px;
+}
+#ecm{
+  font-size: 100px;
+  word-spacing: 1.5;
+  text-align: center;
+}
+
+.topnav a{
+  float:left;
+  display:block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+</style>
+</head>
+<body bgcolor="aqua">
+<form method="POST">
+    {% csrf_token %}
+<center>
+<h1>UPDATE Form</h1>
+<br>
+
+    <br>
+    <label class="mn">OLD Mobile Number:</label>
+   &nbsp;&nbsp;&nbsp; <input type="text" name="mobile">
+    <br>
+    <label class="mn"> NEW Mobile No:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="mobile2">
+    <br><br><br>
+    <input type="submit" value="Submit">
+</center>
+</form>
+</body>
+</html>

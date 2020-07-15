@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Praveen's Blog</title>
+
+
+        <style>
+#bg{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+}
+
+
+
+
+.alternate-option {
+  margin-left: 10px;
+}
+
+
+    </style>
+</head>
+<body id="bg" style="background-image: url('{% static 'images/n.jpg'%}')";>
+
+<nav>
+<div class="box valign-wrapper, center-align">
+    <img src="{% static 'images/logo.png' %}">
+
+    <h5>LOGIN AS</h5>
+<a class="waves-effect waves-light btn pulse">ADMIN</a>
+<a class="waves-effect waves-light btn pulse">
+    <i class="mdi-file-cloud left "></i>STAFF</a>
+
+</div>
+</nav>
+    <ul>
+        <li><a href="#">home</a></li>
+
+    </ul>
+
+
+
+
+
+
+<div class="container right-align ">
+
+
+    <h5>LOGIN AS</h5>
+<a class="waves-effect waves-light btn">ADMIN</a>
+<a class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i>STAFF</a>
+
+</div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<div class="container center-align">
+<img src="{% static 'images/logo.png' %}">
+</div>
+</body>
+</html>

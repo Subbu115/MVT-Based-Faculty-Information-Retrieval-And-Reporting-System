@@ -1,0 +1,307 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>PERSONAL</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    <style>
+        html {
+  scroll-behavior: smooth;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="{% static 'img/admin.png' %}" class="adminlogo"><h3>Faculty</h3>
+            </div>
+
+           <ul class="list-unstyled components">
+                 <li>
+                    <a href="{% url 'addhome' %}" id="Home">Home</a>
+                </li>
+
+
+                <li>
+                    <a href="{% url 'addpersonal' %}" onClick='personal_details("{{record|safe|escapejs}}")'>View Personal Details</a>
+                </li>
+
+
+                <li>
+                    <a href="{% url 'insertpersonaldetails' %}">Add Personal Details</a>
+                </li>
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Qualification</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="{% url 'addbachelor' %}">Bachelor Degree</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'addmaster' %}">Master Degree</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'addphd' %}">PhD Degree</a>
+                        </li>
+                    </ul>
+                </li>
+                 <li>
+                    <a href="{% url 'addexperience' %}">Add Experience Details</a>
+                </li>
+                <li>
+                    <a href="{% url 'addpublication' %}">Add publications</a>
+                </li>
+                <li>
+                    <a href="{% url 'addworkshop' %}">Add Workshops</a>
+                </li>
+                <li>
+                    <a href="{% url 'addpatents' %}">Add Patents Details</a>
+                </li>
+                 <li>
+                    <a href="{% url 'addgrantsfetched' %}">Add Details of Grants Fetched</a>
+                </li>
+                 <li>
+                    <a href="{% url 'addgrantsapplied' %}">Add Details of Grants Applied</a>
+                </li>
+                 <li>
+                    <a href="{% url 'addawards' %}">Add Details of Awards/Appreciation</a>
+                </li>
+                <li>
+                    <a href="{% url 'addbank' %}">Add bank</a>
+                </li>
+                
+                
+            </ul>
+
+            <!--
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>-->
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+
+
+            <div class="Personal">
+                <div class="row justify-content-md-center">
+                    <div class="col-sm-6">
+                         <h2>Add Personal</h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                        <div class="form-group">
+                            <label>First Name:</label>
+                            <input type="text" class="form-control" name="firstname">
+                        </div>
+                        <div class="form-group">
+                            <label>Middle Name:</label>
+                            <input type="text" class="form-control" name="middlename">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name:</label>
+                            <input type="text" class="form-control" name="lastname">
+                        </div>
+                        <div class="form-group">
+                            <label>Date Of Birth:</label>
+                            <input type="date" class="form-control" name="dateofbirth">
+                        </div>
+                        <div class="form-group">
+                            <label>Email ID:</label>
+                            <input type="email" class="form-control" name="emailid">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Mobile Number:</label>
+                            <input type="number" class="form-control" name="mobile">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Alternate Number:</label>
+                            <input type="number" class="form-control" name="alternatemobile">
+                        </div>
+                        <div class="form-group">
+                            <label>Aadhar Number:</label>
+                            <input type="number" class="form-control" name="aadharnumber">
+                        </div>
+                        <div class="form-group">
+                            <label>PAN Number:</label>
+                            <input type="number" class="form-control" name="pancardnumber">
+                        </div>
+                        <div class="form-group">
+                            <label>Blood Group:</label>
+                            <input type="text" class="form-control" name="bloodgroup">
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                               <h5>Address</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Street:</label>
+                                            <input type="text" class="form-control" name="street">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>PinCode:</label>
+                                            <input type="text" class="form-control" name="pincode">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>City:</label>
+                                            <input type="text" class="form-control" name="city">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group"> 
+                                            <label>District:</label>
+                                            <input type="text" class="form-control" name="district">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>State:</label>
+                                    <input type="text" class="form-control" name="state">
+                                </div>
+                            </div> 
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Date Of Joining:</label>
+                            <input type="date" class="form-control" name="dateofjoining">
+                        </div>
+                        <div class="form-group">
+                            <label>Department Name:</label>
+                            <input type="text" class="form-control" name="departmentname">
+                        </div>
+                        <div class="form-group">
+                            <label>Designation:</label>
+                            <input type="text" class="form-control" name="designation">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+
+        
+
+        $( document ).ready(function() {
+            $(".Department").hide();
+            $(".Hod").hide();
+        });
+
+        
+        $("#Department").click(function(){
+            $(".Faculty").hide();
+            $(".Department").toggle();
+        });
+
+        $("#Faculty").click(function(){
+            $(".Faculty").show();
+            $(".Department").hide();
+            $(".Hod").hide();
+        });
+
+        $("#Hod").click(function(){
+            $(".Hod").show();
+            $(".Department").hide();
+            $(".Faculty").hide();
+        });
+    
+
+
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>

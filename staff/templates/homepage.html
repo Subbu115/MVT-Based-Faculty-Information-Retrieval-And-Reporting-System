@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Faculty System</title>
+
+
+        <style>
+#bg{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+}
+
+
+
+
+.alternate-option {
+  margin-left: 10px;
+}
+
+
+    </style>
+</head>
+<form method='post'>
+<body id="bg" style="background-image: url('{% static 'img/n.jpg'%}')";>
+
+
+<div class="box valign-wrapper, center-align">
+    <img src="{% static 'img/logo.png' %}">
+
+    <h5>LOGIN AS</h5>
+	
+	<right-side>
+<a class="waves-effect waves-light btn pulse" href="{% url 'vieww' %}" >ADMIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="waves-effect waves-light btn pulse"  href="{% url 'viewww' %}">
+    <i class="mdi-file-cloud left "></i>HOD</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="waves-effect waves-light btn pulse"  href="{% url 'faculty' %}">
+    <i class="mdi-file-cloud left "></i>Faculty</a>
+	</right-side>
+</div>
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</form>
+</html>
